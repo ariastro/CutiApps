@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detailAllLeaves"
+            type="com.astronout.tmc.modules.leaves.viewmodel.DetailAllLeavesViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:titleTextColor="@color/ef_white" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/status_cuti"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/ef_white"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:padding="@dimen/_4sdp"
+                    tools:background="@drawable/bg_rounded_orange"
+                    tools:text="Menunggu"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nama_karyawan"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/nama_karyawan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="Sumiata" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/jenis_cuti"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/is_tahunan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="bold"
+                        tools:text="Tahunan" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/keperluan_cuti"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/jenis_cuti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="Liburan" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/tanggal_pengajuan"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tanggal_pengajuan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="29 Februari, 2019" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/tanggal_cuti_tanggal_masuk"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tanggal_cuti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="29 Februari, 2019 - 30 Februari, 2020" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/jumlah_hari_cuti"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/jumlah_hari_cuti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="5 hari" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/keterangan"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/keterangan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:gravity="fill_horizontal"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id lacinia vinar blandit mi at vulp non, tincidunt vitpat massa." />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text="@string/catatan_admin"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/admin_remark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ambil_keputusan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_margin="@dimen/_16sdp"
+            android:text="@string/ambil_keputusan"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone"
+            android:textColor="@color/ef_white"
+            android:textSize="@dimen/_12ssp"
+            app:backgroundTint="@color/colorAccent"
+            app:cornerRadius="@dimen/_4sdp" />
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                android:theme="@style/AppTheme.AppBarOverlay" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/toolbar"
+                android:layout_alignParentEnd="true"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="3"
+            android:background="@drawable/ic_half_rounded"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingTop="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_20sdp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/date_now"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textColor="@color/greyText"
+                    tools:text="22 September 2019"/>
+
+                <TextClock
+                    android:id="@+id/txtClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:format12Hour="hh:mm:ss a"
+                    android:format24Hour="hh:mm:ss"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:textColor="@color/greyText"
+                    android:layout_toEndOf="@id/date_now"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="15:11:22" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp">
+
+                    <RelativeLayout
+                        android:id="@+id/cuti_karyawan"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_125sdp"
+                        android:background="@drawable/bg_menu">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/img_permohonan_cuti"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_85sdp"
+                                android:layout_centerHorizontal="true"
+                                android:background="@drawable/ic_rounded_purple"
+                                android:padding="@dimen/_12sdp"
+                                tools:srcCompat="@drawable/nonannual" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/img_permohonan_cuti"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:gravity="center"
+                                android:text="@string/permohonan_cuti"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_11ssp" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/profile"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_125sdp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/bg_menu">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/img_profile"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_85sdp"
+                                android:layout_centerHorizontal="true"
+                                android:background="@drawable/ic_rounded_purple"
+                                android:padding="@dimen/_5sdp"
+                                tools:srcCompat="@drawable/profile" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/img_profile"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:text="@string/profil_diri"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_11ssp" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.astronout.tmc.modules.leaves.viewmodel.LeaveViewModel" />
+        <variable
+            name="itemLeave"
+            type="com.astronout.tmc.modules.leaves.model.GetLeaveByIdModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_5sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_12sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_70sdp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/jenis_cuti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemLeave.annual}"
+                        android:textSize="@dimen/_10ssp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        tools:text="Cuti Tahunan" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemLeave.leaveType}"
+                        android:textSize="@dimen/_14ssp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        tools:text="Liburan" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="@{itemLeave.description}"
+                        android:textSize="@dimen/_10ssp"
+                        tools:text="Pulkam" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:text="@{itemLeave.fromDate + ` - ` + itemLeave.toDate}"
+                        tools:text="22 Desember - 24 Desember" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/status_cuti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/ef_white"
+                android:text="@{itemLeave.status}"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_4sdp"
+                android:background="@drawable/bg_rounded_orange"
+                tools:text="Menunggu"/>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

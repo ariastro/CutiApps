@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="itemAllEmployees"
+            type="com.astronout.tmc.modules.employees.model.GetAllEmployeesModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_5sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/option_menu"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                app:srcCompat="@drawable/ic_more_vert"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:visibility="visible"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_70sdp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/emp_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_9ssp"
+                        android:text="@{itemAllEmployees.empId}"
+                        tools:text="EMP0001" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_14ssp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="@{itemAllEmployees.firstName + ` ` + itemAllEmployees.lastName}"
+                        tools:text="Tukijan Silalahi Simanjuntak" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/department"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:text="@{`Subag : ` + itemAllEmployees.department}"
+                        tools:text="Subag : Traffic Manager" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:text="@{`Jabatan : ` + itemAllEmployees.position}"
+                        tools:text="Jabatan : IT Leader" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:text="@{`Hak Cuti Tahunan : ` + itemAllEmployees.annualLeaveRights + ` hari`}"
+                        tools:text="Hak Cuti Tahunan : 4 hari" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

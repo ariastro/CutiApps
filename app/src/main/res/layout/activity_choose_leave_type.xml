@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            app:titleTextColor="@color/ef_white"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/annual"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_145sdp"
+                android:background="@drawable/bg_menu">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_annual"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_95sdp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/ic_rounded"
+                        tools:srcCompat="@drawable/annual" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_annual"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:text="@string/cuti_tahunan"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/non_annual"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_145sdp"
+                android:background="@drawable/bg_menu">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_non_annual"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_95sdp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/ic_rounded"
+                        android:padding="@dimen/_8sdp"
+                        tools:srcCompat="@drawable/nonannual" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_non_annual"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:text="@string/cuti_non_tahunan"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

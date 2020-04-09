@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profile"
+            type="com.astronout.tmc.modules.profile.viewmodel.ProfileViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:titleTextColor="@color/ef_white" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/top_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_220sdp"
+                    android:background="@color/colorPrimaryDark">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_picture"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_120sdp"
+                            android:layout_gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:scaleType="centerCrop"
+                            tools:src="@tools:sample/backgrounds/scenic" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fullname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:textColor="@color/ef_white"
+                            android:textSize="@dimen/_19ssp"
+                            android:textStyle="bold"
+                            tools:text="Welly Simanjuntak Silalahi" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/emp_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@{profile.empId}"
+                            android:textColor="@color/ef_white"
+                            android:textSize="@dimen/_11ssp"
+                            tools:text="EMP001" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/top_view"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/username"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/jabatan"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/subag"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/tanggal_lahir"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/jenis_kelamin"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/no_hp"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/alamat"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/kota_kabupaten"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/kewarganegaraan"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/sisa_cuti"
+                            android:textColor="@color/ef_grey"
+                            android:textSize="@dimen/_12ssp"
+                            android:layout_marginBottom="@dimen/_16sdp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{profile.email}"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="permainan" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/position"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{profile.position}"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="Cleaning Service" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/department"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{profile.department}"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="Office Boy" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{profile.dob}"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="12 Februari 2019" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/gender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@{profile.gender}"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="Pria" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/phone_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{profile.phoneNumber}"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="089482847621" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{profile.address}"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="Jl. Raya Pinggir Jalan Tengah Sungai deket tol" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{profile.city}"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="Malang" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/country"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{profile.country}"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="Indonesia" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/annualLeaveRights"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="42 hari"
+                            android:layout_marginBottom="@dimen/_16sdp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

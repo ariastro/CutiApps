@@ -1,0 +1,156 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
+def recyclerviewVersion = "1.0.0"
+def retrofitVersion = "2.6.0"
+def coroutineVersion = "1.2.2"
+def httpLoggingVersion = "3.10.0"
+def glideVersion = "4.9.0"
+def navigationVersion = "2.2.0-alpha01"
+def lifecycleVersion = "2.2.0-alpha03"
+def sspVersion = "1.0.6"
+def sdpVersion = "1.0.6"
+def pagingVersion = "2.1.0"
+def multidexVersion = "1.0.3"
+def kotprefVersion = "2.9.1"
+def roomVersion = "2.2.0-beta01"
+def circleimageviewVersion = "3.0.1"
+def sentryVersion = "1.7.27"
+def slf4jVersion = "1.7.25"
+def imagePickerVersion = "2.1.0"
+def dexterVersion = "6.0.2"
+def compressorVersion = "2.1.0"
+def photoViewVersion = "2.3.0"
+def jodaTimeVersion = "2.10.3"
+def bottomSheetVersion = "1.5.0"
+def materialDialogVersion = "3.1.1"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.astronout.tmc"
+        minSdkVersion 19
+        targetSdkVersion 29
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        setProperty("archivesBaseName", applicationId + "-v" + versionCode + "(" + versionName + ")")
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    androidExtensions {
+        experimental = true
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    flavorDimensions "default"
+    productFlavors {
+        development {
+            buildConfigField "String", "BASE_API_URL", "\"https://tmc-rest.000webhostapp.com/api/\""
+            buildConfigField "String", "BASE_IMG_AVATAR", "\"https://tmc-rest.000webhostapp.com/img/\""
+        }
+        production {
+            buildConfigField "String", "BASE_API_URL", "\"https://tmc-rest.000webhostapp.com/api/\""
+            buildConfigField "String", "BASE_IMG_AVATAR", "\"https://tmc-rest.000webhostapp.com/img/\""
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    implementation "androidx.recyclerview:recyclerview:$recyclerviewVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$httpLoggingVersion"
+
+//    >>> IMAGE PROCESSING
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+    implementation "id.zelory:compressor:$compressorVersion"
+    implementation("com.github.esafirm.android-image-picker:imagepicker:$imagePickerVersion") {
+        exclude group: 'com.github.bumptech.glide', module: 'glide'
+    }
+    implementation "de.hdodenhof:circleimageview:$circleimageviewVersion"
+
+    implementation "com.intuit.ssp:ssp-android:$sspVersion"
+    implementation "com.intuit.sdp:sdp-android:$sdpVersion"
+
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
+//    >>> END IMAGE PROCESSING
+
+//    >>> LOCAL DATABASE
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    // For Kotlin use kapt instead of annotationProcessor
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$roomVersion"
+    // Test helpers
+    testImplementation "androidx.room:room-testing:$roomVersion"
+
+//    SHARED PREFERENCE
+    implementation "com.chibatching.kotpref:kotpref:$kotprefVersion"
+//    >>> END LOCAL DATABASE
+
+//    this dependency is not required if you are already using your own
+//    slf4j implementation
+    implementation "org.slf4j:slf4j-nop:$slf4jVersion"
+
+    implementation "com.android.support:multidex:$multidexVersion"
+
+    implementation "com.github.chrisbanes:PhotoView:$photoViewVersion"
+
+
+    implementation "net.danlew:android.joda:$jodaTimeVersion"
+
+    //dexter for runtime permission
+    implementation "com.karumi:dexter:$dexterVersion"
+
+    // Material dialog
+    implementation "com.afollestad.material-dialogs:core:$materialDialogVersion"
+    implementation "com.afollestad.material-dialogs:datetime:$materialDialogVersion"
+
+    // Bottom Sheet
+    implementation "com.github.andrefrsousa:SuperBottomSheet:$bottomSheetVersion"
+}

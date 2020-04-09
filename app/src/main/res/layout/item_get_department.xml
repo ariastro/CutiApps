@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="getDepartmentList"
+            type="com.astronout.tmc.modules.department.model.GetDepartmentModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="@dimen/_4sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/option_menu"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                app:srcCompat="@drawable/ic_more_vert"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:visibility="visible"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_14sdp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/departmentShortName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{getDepartmentList.departmentShortName}"
+                android:textSize="@dimen/_11ssp"
+                tools:text="HRD" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/departmentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{getDepartmentList.departmentName}"
+                android:textSize="@dimen/_12ssp"
+                tools:text="Human Resources Department" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/departmentCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{getDepartmentList.departmentCode}"
+                android:textSize="@dimen/_9ssp"
+                tools:text="HRD0001" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

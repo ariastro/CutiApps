@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.astronout.tmc">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppThemeNoActionBar"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".modules.manager.view.AddManagerActivity"
+            android:label="@string/tambah_kepala_bnn"/>
+        <activity
+            android:name=".modules.manager.view.ManagerListActivity"
+            android:label="@string/kepala_bnn"/>
+        <activity
+            android:name=".modules.admin.view.AddAdminActivity"
+            android:label="@string/tambah_admin"/>
+        <activity
+            android:name=".modules.admin.view.AdminListActivity"
+            android:label="@string/admin_cuti"/>
+        <activity
+            android:name=".modules.admin.view.ChooseAdminTypeActivity"
+            android:label="@string/admin_kepala_bnn"/>
+        <activity
+            android:name=".modules.admin.view.ChangePasswordAActivity"
+            android:label="@string/ganti_password" />
+        <activity
+            android:name=".modules.admin.view.UpdateProfileAActivity"
+            android:label="@string/update_profile" />
+        <activity
+            android:name=".modules.admin.view.ProfileAdminActivity"
+            android:label="@string/profil_diri" />
+        <activity
+            android:name=".modules.manager.view.UpdateProfileMActivity"
+            android:label="@string/update_profile" />
+        <activity
+            android:name=".modules.manager.view.ChangePasswordMActivity"
+            android:label="@string/ganti_password" />
+        <activity
+            android:name=".modules.manager.view.ProfileManagerActivity"
+            android:label="@string/profil_diri" />
+        <activity
+            android:name=".modules.main.ManagerHomeActivity"
+            android:label="@string/halaman_manager" />
+        <activity android:name=".modules.auth.manager.view.LoginManagerActivity" />
+        <activity
+            android:name=".modules.profile.view.ChangePasswordActivity"
+            android:label="@string/ganti_password" />
+        <activity
+            android:name=".modules.employees.view.UpdateEmployeeActivity"
+            android:label="@string/update_karyawan" />
+        <activity
+            android:name=".modules.employees.view.AddEmployeeActivity"
+            android:label="@string/tambah_karyawan" />
+        <activity
+            android:name=".modules.employees.view.EmployeesActivity"
+            android:label="@string/karyawan" />
+        <activity
+            android:name=".modules.leavetype.nonannual.view.UpdateNonAnnualActivity"
+            android:label="@string/update_cuti_non_tahunan" />
+        <activity
+            android:name=".modules.leavetype.nonannual.view.AddNonAnnualActivity"
+            android:label="@string/tambah_cuti_non_tahunan" />
+        <activity
+            android:name=".modules.leavetype.annual.view.UpdateAnnualActivity"
+            android:label="@string/ubah_cuti_tahunan" />
+        <activity
+            android:name=".modules.leavetype.annual.view.AddAnnualActivity"
+            android:label="@string/tambah_cuti_tahunan" />
+        <activity
+            android:name=".modules.leavetype.LeaveTypeActivity"
+            android:label="@string/jenis_cuti" />
+        <activity
+            android:name=".modules.department.view.UpdateDepartmentActivity"
+            android:label="@string/update_subag" />
+        <activity
+            android:name=".modules.department.view.AddDepartmentActivity"
+            android:label="@string/tambah_divisi" />
+        <activity
+            android:name=".modules.department.view.DepartmentActivity"
+            android:label="@string/sub_bagian_kerja" />
+        <activity
+            android:name=".modules.leaves.view.DetailAllLeavesActivity"
+            android:label="@string/detail_cuti" />
+        <activity
+            android:name=".modules.leaves.view.AllLeavesActivity"
+            android:label="@string/permohonan_cuti" />
+        <activity
+            android:name=".modules.main.AdminHomeActivity"
+            android:label="@string/halaman_admin" />
+        <activity
+            android:name=".modules.profile.view.ChooseDepartmentActivity"
+            android:label="@string/pilih_subag" />
+        <activity
+            android:name=".modules.profile.view.UpdateProfileActivity"
+            android:label="@string/update_profile" />
+        <activity
+            android:name=".modules.requestleave.view.ChooseNonAnnualActivity"
+            android:label="@string/pilih_jenis_cuti" />
+        <activity
+            android:name=".modules.requestleave.view.ChooseAnnualActivity"
+            android:label="@string/pilih_jenis_cuti" />
+        <activity
+            android:name=".modules.leavetype.annual.view.GetAnnualActivity"
+            android:label="@string/cuti_tahunan" />
+        <activity
+            android:name=".modules.leavetype.nonannual.view.GetNonAnnualActivity"
+            android:label="@string/cuti_non_tahunan" />
+        <activity
+            android:name=".modules.requestleave.view.ChooseLeaveTypeActivity"
+            android:label="@string/pilih_jenis_cuti" />
+        <activity
+            android:name=".modules.requestleave.view.NonAnnualLeaveActivity"
+            android:label="@string/permohonan_cuti_non_tahunan" />
+        <activity
+            android:name=".modules.requestleave.view.AnnualLeaveActivity"
+            android:label="@string/permohonan_cuti_tahunan" />
+        <activity
+            android:name=".modules.profile.view.ProfileActivity"
+            android:label="@string/profil_diri" />
+        <activity
+            android:name=".modules.leaves.view.DetailLeaveActivity"
+            android:label="@string/detail_cuti" />
+        <activity
+            android:name=".modules.leaves.view.LeaveActivity"
+            android:label="@string/title_activity_leave" />
+        <activity android:name=".modules.auth.admin.view.LoginAdminActivity" />
+        <activity android:name=".modules.auth.empolyees.view.LoginActivity" />
+        <activity android:name=".modules.splashscreen.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".modules.main.MainActivity"
+            android:label="@string/home" />
+    </application>
+
+</manifest>

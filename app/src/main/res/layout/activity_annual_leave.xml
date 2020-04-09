@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="annualLeave"
+            type="com.astronout.tmc.modules.requestleave.viewmodel.AnnualLeaveViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:titleTextColor="@color/ef_white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_margin="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sisa_cuti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                android:text="@string/sisa_cuti_anda"
+                tools:text="Sisa cuti anda : 8 hari." />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/jenis_cuti_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/jenis_cuti"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textColorHint="@color/ef_grey"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/jenis_cuti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="none"
+                    android:focusableInTouchMode="false"
+                    android:focusable="false"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="Liburan" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/start_date_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/tanggal_cuti"
+                android:textColorHint="@color/ef_grey"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/start_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="none"
+                    android:focusableInTouchMode="false"
+                    android:focusable="false"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="22 Maret 2020" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/tanggal_masuk_kembali"
+                android:textColorHint="@color/ef_grey"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/end_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="none"
+                    android:focusableInTouchMode="false"
+                    android:focusable="false"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="23 Maret 2020" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/total_hari_cuti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="@string/hak_cuti_dipergunakan"
+                tools:text="Hak cuti dipergunakan : 0 hari." />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/keterangan"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textColorHint="@color/ef_grey"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/keterangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    app:bindingTextInputEditText="@{annualLeave._keterangan}"
+                    android:inputType="textCapSentences"
+                    android:textSize="@dimen/_14ssp"
+                    tools:text="Hi guys jadi gua mau cuti 5 bulan dari sekarang" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ajukan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_16sdp"
+            android:text="@string/ajukan_cuti"
+            android:textColor="@color/ef_white"
+            android:textSize="@dimen/_12ssp"
+            app:backgroundTint="@color/colorAccent"
+            app:cornerRadius="@dimen/_4sdp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/alert_no_right_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12ssp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_margin="@dimen/_16sdp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/alert_no_right_left"/>
+
+    </RelativeLayout>
+
+</layout>

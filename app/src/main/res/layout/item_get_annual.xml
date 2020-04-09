@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="getAnnualList"
+            type="com.astronout.tmc.modules.leavetype.annual.model.GetAnnualModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="@dimen/_4sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/option_menu"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                app:srcCompat="@drawable/ic_more_vert"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:visibility="visible"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_14sdp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/annualNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`No. ` + getAnnualList.no}"
+                android:textSize="@dimen/_9ssp"
+                tools:text="No. 3" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/annualName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:text="@{getAnnualList.leaveType}"
+                android:textSize="@dimen/_12ssp"
+                tools:text="Liburan" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/annualDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{getAnnualList.description}"
+                android:textSize="@dimen/_9ssp"
+                tools:text="Urusan Penting yang tidak dapat ditinggalkan" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

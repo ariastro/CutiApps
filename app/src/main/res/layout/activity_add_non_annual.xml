@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="addNonAnnual"
+            type="com.astronout.tmc.modules.leavetype.nonannual.viewmodel.AddNonAnnualViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:titleTextColor="@color/ef_white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:layout_below="@id/toolbar"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/annualNoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nomor_dalam_alfabet"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/annualNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    app:bindingTextInputEditText="@{addNonAnnual._no}"
+                    android:inputType="textCapCharacters"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="A" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/annualLeaveTypeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/jenis_cuti"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/annualLeaveType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:bindingTextInputEditText="@{addNonAnnual._leaveType}"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapWords"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="Liburan" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/rightsGrantedLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hak_diberikan_hari"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/rightsGranted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:bindingTextInputEditText="@{addNonAnnual._rightsGranted}"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="4" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/annualDescriptionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/keterangan"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/annualDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    app:bindingTextInputEditText="@{addNonAnnual._description}"
+                    android:inputType="textCapWords"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="Malas Kerja Bos" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_margin="@dimen/_20sdp"
+            android:text="@string/tambah_cuti_non_tahunan"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/ef_white"
+            android:textSize="@dimen/_12ssp"
+            app:backgroundTint="@color/colorAccent"
+            app:cornerRadius="@dimen/_4sdp" />
+
+    </RelativeLayout>
+
+</layout>
