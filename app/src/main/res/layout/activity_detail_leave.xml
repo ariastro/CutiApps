@@ -147,6 +147,7 @@
                         tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id lacinia lectus, sodales aliquam quam. Donec pulvinar blandit mi at vulp non, tincidunt vitpat massa." />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_remark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_16sdp"
@@ -154,7 +155,7 @@
                         android:textSize="@dimen/_9ssp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/admin_remark"
+                        android:id="@+id/manager_remark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_4sdp"

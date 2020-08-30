@@ -53,8 +53,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_10ssp"
-                        android:text="@{itemAllLeaves.annual}"
-                        tools:text="Cuti Tahunan" />
+                        android:text="@{itemAllLeaves.empDepartment}"
+                        tools:text="Brantas" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
@@ -91,7 +91,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/ef_white"
-                android:text="@{itemAllLeaves.status}"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_centerVertical="true"
                 android:padding="@dimen/_4sdp"

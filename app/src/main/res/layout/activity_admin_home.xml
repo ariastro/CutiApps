@@ -128,9 +128,9 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="@dimen/_3sdp"
                                     android:gravity="center"
-                                    android:text="@string/permohonan_cuti"
+                                    android:text="@string/data_cuti_karyawan"
                                     android:textColor="@android:color/black"
-                                    android:textSize="@dimen/_11ssp" />
+                                    android:textSize="@dimen/_10ssp" />
 
                             </RelativeLayout>
 

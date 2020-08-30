@@ -64,28 +64,28 @@
                         android:textSize="@dimen/_14ssp"
                         tools:text="Sumiata" />
 
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_12sdp"-->
+<!--                        android:text="@string/jenis_cuti"-->
+<!--                        android:textSize="@dimen/_9ssp" />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:id="@+id/is_tahunan"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_4sdp"-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        android:textSize="@dimen/_14ssp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        tools:text="Tahunan" />-->
+
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:text="@string/jenis_cuti"
-                        android:textSize="@dimen/_9ssp" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/is_tahunan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_4sdp"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_14ssp"
-                        android:textStyle="bold"
-                        tools:text="Tahunan" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_12sdp"
-                        android:text="@string/keperluan_cuti"
                         android:textSize="@dimen/_9ssp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -163,14 +163,15 @@
                         tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id lacinia vinar blandit mi at vulp non, tincidunt vitpat massa." />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_remark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_16sdp"
-                        android:text="@string/catatan_admin"
+                        tools:text="@string/catatan_admin"
                         android:textSize="@dimen/_9ssp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/admin_remark"
+                        android:id="@+id/manager_remark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_4sdp"
@@ -183,19 +184,6 @@
             </RelativeLayout>
 
         </ScrollView>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_ambil_keputusan"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_44sdp"
-            android:layout_margin="@dimen/_16sdp"
-            android:text="@string/ambil_keputusan"
-            android:layout_alignParentBottom="true"
-            android:visibility="gone"
-            android:textColor="@color/ef_white"
-            android:textSize="@dimen/_12ssp"
-            app:backgroundTint="@color/colorAccent"
-            app:cornerRadius="@dimen/_4sdp" />
 
     </RelativeLayout>
 

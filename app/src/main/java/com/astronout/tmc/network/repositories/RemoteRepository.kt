@@ -9,6 +9,7 @@ import com.astronout.tmc.modules.employees.model.UpdateEmployeeResponseModel
 import com.astronout.tmc.modules.auth.admin.model.LoginAdminResponseModel
 import com.astronout.tmc.modules.auth.admin.model.LoginManagerResponseModel
 import com.astronout.tmc.modules.auth.empolyees.model.LoginResponseModel
+import com.astronout.tmc.modules.auth.kasi.model.LoginKasiResponseModel
 import com.astronout.tmc.modules.auth.local.User
 import com.astronout.tmc.modules.department.model.DeleteDepartmentResponseModel
 import com.astronout.tmc.modules.department.model.GetDepartmentResponseModel
@@ -17,10 +18,9 @@ import com.astronout.tmc.modules.department.model.UpdateDepartmentResponseModel
 import com.astronout.tmc.modules.employees.model.DeleteEmployeeResponseModel
 import com.astronout.tmc.modules.employees.model.GetAllEmployeesResponseModel
 import com.astronout.tmc.modules.employees.model.PostNewEmployeeResponseModel
-import com.astronout.tmc.modules.leaves.model.GetAllLeavesResponseModel
-import com.astronout.tmc.modules.leaves.model.GetLeaveByIdResponseModel
-import com.astronout.tmc.modules.leaves.model.PostDecisionResponseModel
-import com.astronout.tmc.modules.leaves.model.UpdateLeaveRightsResponseModel
+import com.astronout.tmc.modules.kasi.model.GetKasiListResponseModel
+import com.astronout.tmc.modules.kasi.model.GetProfileKasiResponseModel
+import com.astronout.tmc.modules.leaves.model.*
 import com.astronout.tmc.modules.leavetype.annual.model.DeleteAnnualTypeResponseModel
 import com.astronout.tmc.modules.leavetype.annual.model.GetAnnualResponseModel
 import com.astronout.tmc.modules.leavetype.annual.model.PostNewAnnualTypeResponseModel
@@ -89,6 +89,19 @@ class RemoteRepository(coroutineScope: CoroutineScope) {
         })
     }
 
+    fun postKasiLogin(username: String, password: String, onSuccess: (LoginKasiResponseModel) -> Unit, onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.postLoginKasi(username, password)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("postKasiLogin # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
     fun getLeaveById(id: String, onSuccess: (GetLeaveByIdResponseModel) -> Unit, onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
         network.request({
             restApi.getLeaveById(id)
@@ -109,6 +122,19 @@ class RemoteRepository(coroutineScope: CoroutineScope) {
             onSuccess(it!!)
         }, {
             logError("getAllLeaves # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
+    fun postGetAccLeaves(kasiJabatan: String, onSuccess: (GetAccLeavesResponseModel) -> Unit, onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.postGetAccLeaves(User.userType, kasiJabatan)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("postGetAccLeaves # Error Message = $it")
             onError(it)
         }, {
             onFinally(true)
@@ -168,12 +194,12 @@ class RemoteRepository(coroutineScope: CoroutineScope) {
     }
 
     fun postNewLeave(leaveType: String, fromDate: String, toDate:String, rightsGranted: String,
-                     annual: String, nonAnnual: String, desctription: String, id: String,
+                     empDepartment: String, desctription: String, id: String,
                      onSuccess: (RequestLeaveResponseModel) -> Unit, onError: (String) -> Unit,
                      onFinally: (Boolean) -> Unit) {
         network.request({
-            restApi.postNewLeave(leaveType, fromDate, toDate, rightsGranted, annual, nonAnnual,
-                desctription, "0", "0", id)
+            restApi.postNewLeave(leaveType, fromDate, toDate, rightsGranted, empDepartment,
+                desctription, id)
         }, {
             onSuccess(it!!)
         }, {
@@ -184,15 +210,45 @@ class RemoteRepository(coroutineScope: CoroutineScope) {
         })
     }
 
-    fun postDecision(adminRemark: String, adminRemarkDate: String, status:String, id: String,
-                     onSuccess: (PostDecisionResponseModel) -> Unit, onError: (String) -> Unit,
-                     onFinally: (Boolean) -> Unit) {
+    fun postAccKasi(kasiRemark: String, kasiAcc:String, id: String,
+                    onSuccess: (BaseResponseModel) -> Unit, onError: (String) -> Unit,
+                    onFinally: (Boolean) -> Unit) {
         network.request({
-            restApi.postDecision(adminRemark, adminRemarkDate, status, "1", id)
+            restApi.postAccKasi(kasiRemark, kasiAcc, id)
         }, {
             onSuccess(it!!)
         }, {
-            logError("postDecision # Error Message = $it")
+            logError("postAccKasi # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
+    fun postAccKasubag(kasubagRemark: String, kasubagAcc:String, nomorCuti: String, id: String,
+                       onSuccess: (BaseResponseModel) -> Unit, onError: (String) -> Unit,
+                       onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.postAccKasubag(kasubagRemark, kasubagAcc, nomorCuti, id)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("postAccKasubag # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
+    fun postAccManager(managerRemark: String, managerAcc:String, id: String,
+                       onSuccess: (BaseResponseModel) -> Unit, onError: (String) -> Unit,
+                       onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.postAccManager(managerRemark, managerAcc, id)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("postAccManager # Error Message = $it")
             onError(it)
         }, {
             onFinally(true)
@@ -504,6 +560,69 @@ class RemoteRepository(coroutineScope: CoroutineScope) {
         })
     }
 
+    fun getKasiById(id: String, onSuccess: (GetProfileKasiResponseModel) -> Unit,
+                    onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.getKasiById(id)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("getKasiById # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
+    fun postChangePasswordKasi(currentPassword: String, newPassword: String, id: String,
+                               onSuccess: (BaseResponseModel) -> Unit,
+                               onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.postChangePasswordKasi(currentPassword, newPassword, id)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("postChangePasswordKasi # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
+    fun postUpdateKasi(username: String, name:String, gender: String, birthday: String, address: String,
+                       city: String, country: String, phonenumber: String, jabatan: String, id: String,
+                       onSuccess: (BaseResponseModel) -> Unit, onError: (String) -> Unit,
+                       onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.postUpdateKasi(username, name, gender, birthday, address, city, country,
+                phonenumber, jabatan, id)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("postUpdateKasi # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
+    fun postUpdateKasiAvatar(avatar: File, onSuccess: (BaseResponseModel) -> Unit,
+                             onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
+        val requestBody = RequestBody.create(MediaType.parse("multipart/form-file"), avatar)
+        val image = MultipartBody.Part.createFormData("kasi_avatar", avatar.name, requestBody)
+        val userId = RequestBody.create(MediaType.parse("text/plain"), User.kasiId)
+        network.request({
+            restApi.postUpdateKasiAvatar(image, userId)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("postUpdateKasiAvatar # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
     fun getAdminById(id: String, onSuccess: (GetProfileAdminResponseModel) -> Unit,
                        onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
         network.request({
@@ -596,6 +715,34 @@ class RemoteRepository(coroutineScope: CoroutineScope) {
         })
     }
 
+    fun getKasiList(onSuccess: (GetKasiListResponseModel) -> Unit,
+                    onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.getKasiList()
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("getKasiList # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
+    fun getKasi(onSuccess: (GetKasiListResponseModel) -> Unit,
+                    onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.getKasiList()
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("getKasiList # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
     fun postNewAdmin(username: String, password: String, name:String, gender: String, birthday: String,
                      address: String, city: String, country: String, phonenumber: String,
                      onSuccess: (BaseResponseModel) -> Unit, onError: (String) -> Unit,
@@ -630,6 +777,23 @@ class RemoteRepository(coroutineScope: CoroutineScope) {
         })
     }
 
+    fun postNewKasi(username: String, password: String, name:String, gender: String, birthday: String,
+                    address: String, city: String, country: String, phonenumber: String, jabatan: String,
+                    jenis: String, onSuccess: (BaseResponseModel) -> Unit, onError: (String) -> Unit,
+                    onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.postNewKasi(username, password, name, gender, birthday, address, city, country,
+                phonenumber, STATUS_AKTIF_CODE, jabatan, jenis)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("postNewKasi # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
     fun postUpdateStatusAdmin(status: String, id: String, onSuccess: (BaseResponseModel) -> Unit,
                               onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
         network.request({
@@ -651,7 +815,21 @@ class RemoteRepository(coroutineScope: CoroutineScope) {
         }, {
             onSuccess(it!!)
         }, {
-            logError("postUpdateStatusAdmin # Error Message = $it")
+            logError("postUpdateStatusManager # Error Message = $it")
+            onError(it)
+        }, {
+            onFinally(true)
+        })
+    }
+
+    fun postUpdateStatusKasi(status: String, id: String, onSuccess: (BaseResponseModel) -> Unit,
+                             onError: (String) -> Unit, onFinally: (Boolean) -> Unit) {
+        network.request({
+            restApi.postUpdateStatusKasi(status, id)
+        }, {
+            onSuccess(it!!)
+        }, {
+            logError("postUpdateStatusKasi # Error Message = $it")
             onError(it)
         }, {
             onFinally(true)

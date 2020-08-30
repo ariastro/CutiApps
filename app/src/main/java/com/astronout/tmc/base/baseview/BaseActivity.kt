@@ -61,6 +61,10 @@ abstract class BaseActivity : AppCompatActivity() {
         User.managerId = ""
         User.managerStatus = ""
         User.userType = ""
+
+        User.kasiId = ""
+        User.kasiStatus = ""
+        User.kasiJabatan = ""
     }
 
 }

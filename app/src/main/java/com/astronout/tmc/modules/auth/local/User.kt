@@ -26,5 +26,9 @@ object User : KotprefModel() {
     var managerId by stringPref()
     var managerStatus by stringPref()
 
+    var kasiId by stringPref()
+    var kasiStatus by stringPref()
+    var kasiJabatan by stringPref()
+
     var userType by stringPref()
 }

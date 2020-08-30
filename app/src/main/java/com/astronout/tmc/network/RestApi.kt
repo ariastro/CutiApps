@@ -9,10 +9,6 @@ import com.astronout.tmc.modules.department.model.DeleteDepartmentResponseModel
 import com.astronout.tmc.modules.department.model.GetDepartmentResponseModel
 import com.astronout.tmc.modules.department.model.PostNewDepartmentResponseModel
 import com.astronout.tmc.modules.department.model.UpdateDepartmentResponseModel
-import com.astronout.tmc.modules.leaves.model.GetAllLeavesResponseModel
-import com.astronout.tmc.modules.leaves.model.GetLeaveByIdResponseModel
-import com.astronout.tmc.modules.leaves.model.PostDecisionResponseModel
-import com.astronout.tmc.modules.leaves.model.UpdateLeaveRightsResponseModel
 import com.astronout.tmc.modules.leavetype.annual.model.DeleteAnnualTypeResponseModel
 import com.astronout.tmc.modules.leavetype.annual.model.GetAnnualResponseModel
 import com.astronout.tmc.modules.leavetype.annual.model.PostNewAnnualTypeResponseModel
@@ -27,6 +23,10 @@ import com.astronout.tmc.base.basemodel.UpdateAvatarResponseModel
 import com.astronout.tmc.modules.admin.model.GetAdminListResponseModel
 import com.astronout.tmc.modules.manager.model.GetManagerListResponseModel
 import com.astronout.tmc.modules.admin.model.GetProfileAdminResponseModel
+import com.astronout.tmc.modules.auth.kasi.model.LoginKasiResponseModel
+import com.astronout.tmc.modules.kasi.model.GetKasiListResponseModel
+import com.astronout.tmc.modules.kasi.model.GetProfileKasiResponseModel
+import com.astronout.tmc.modules.leaves.model.*
 import com.astronout.tmc.modules.manager.model.GetProfileManagerResponseModel
 import com.astronout.tmc.modules.requestleave.model.RequestLeaveResponseModel
 import okhttp3.MultipartBody
@@ -51,6 +51,10 @@ interface RestApi {
     suspend fun postLoginManager(@Field("manager_username") emailId: String,
                                  @Field("manager_password") password: String) : Response<LoginManagerResponseModel>
 
+    @FormUrlEncoded
+    @POST("kasi")
+    suspend fun postLoginKasi(@Field("kasi_username") username: String,
+                              @Field("kasi_password") password: String) : Response<LoginKasiResponseModel>
 
     @GET("employees")
     suspend fun getAllEmployees(): Response<GetAllEmployeesResponseModel>
@@ -100,6 +104,11 @@ interface RestApi {
     @GET("leaves")
     suspend fun getAllLeaves(): Response<GetAllLeavesResponseModel>
 
+    @FormUrlEncoded
+    @POST("leaves/needacc")
+    suspend fun postGetAccLeaves(@Field("userType") userType: String,
+                                 @Field("kasi_jabatan") kasiJabatan: String): Response<GetAccLeavesResponseModel>
+
     @GET("leaves")
     suspend fun getLeaveById(@Query("id") id: String): Response<GetLeaveByIdResponseModel>
 
@@ -118,20 +127,28 @@ interface RestApi {
                              @Field("FromDate") fromDate: String,
                              @Field("ToDate") toDate: String,
                              @Field("RightsGranted") rightsGranted: String,
-                             @Field("Annual") annual: String,
-                             @Field("NonAnnual") nonAnnual: String,
+                             @Field("emp_department") empDepartment: String,
                              @Field("Description") description: String,
-                             @Field("Status") status: String,
-                             @Field("IsRead") isRead: String,
                              @Field("empid") empId: String) : Response<RequestLeaveResponseModel>
 
     @FormUrlEncoded
-    @POST("leaves/update")
-    suspend fun postDecision(@Field("AdminRemark") adminRemark: String,
-                             @Field("AdminRemarkDate") adminRemarkDate: String,
-                             @Field("Status") status: String,
-                             @Field("IsRead") isRead: String,
-                             @Field("id") id: String) : Response<PostDecisionResponseModel>
+    @POST("leaves/acckasi")
+    suspend fun postAccKasi(@Field("kasi_remark") kasiRemark: String,
+                            @Field("kasi_acc") kasiAcc: String,
+                            @Field("id") id: String) : Response<BaseResponseModel>
+
+    @FormUrlEncoded
+    @POST("leaves/accksb")
+    suspend fun postAccKasubag(@Field("kasubag_remark") kasubagRemark: String,
+                               @Field("kasubag_acc") kasubagAcc: String,
+                               @Field("nomor_cuti") nomorCuti: String,
+                               @Field("id") id: String) : Response<BaseResponseModel>
+
+    @FormUrlEncoded
+    @POST("leaves/accmanager")
+    suspend fun postAccManager(@Field("manager_remark") managerRemark: String,
+                               @Field("manager_acc") managerAcc: String,
+                               @Field("id") id: String) : Response<BaseResponseModel>
 
     @FormUrlEncoded
     @POST("leaves/updateLeaveRights")
@@ -233,6 +250,33 @@ interface RestApi {
     @GET("admin")
     suspend fun getAdminById(@Query("id") id: String): Response<GetProfileAdminResponseModel>
 
+    @GET("kasi")
+    suspend fun getKasiById(@Query("kasi_id") id: String): Response<GetProfileKasiResponseModel>
+
+    @FormUrlEncoded
+    @POST("kasi/changepassword")
+    suspend fun postChangePasswordKasi(@Field("currentPassword") currentPassword: String,
+                                       @Field("Password") Password: String,
+                                       @Field("id") id: String) : Response<BaseResponseModel>
+
+    @FormUrlEncoded
+    @POST("kasi/update")
+    suspend fun postUpdateKasi(@Field("kasi_username") username: String,
+                               @Field("kasi_name") name: String,
+                               @Field("kasi_gender") gender: String,
+                               @Field("kasi_birthday") birthday: String,
+                               @Field("kasi_address") address: String,
+                               @Field("kasi_city") city: String,
+                               @Field("kasi_country") country: String,
+                               @Field("kasi_phone") phoneNumber: String,
+                               @Field("kasi_jabatan") jabatan: String,
+                               @Field("kasi_id") id: String) : Response<BaseResponseModel>
+
+    @Multipart
+    @POST("kasi/updateavatar")
+    suspend fun postUpdateKasiAvatar(@Part avatarImage: MultipartBody.Part,
+                                     @Part("kasi_id") userId: RequestBody) : Response<BaseResponseModel>
+
     @FormUrlEncoded
     @POST("admin/update")
     suspend fun postUpdateAdmin(@Field("UserName") username: String,
@@ -263,6 +307,9 @@ interface RestApi {
     @GET("manager")
     suspend fun getManagerList(): Response<GetManagerListResponseModel>
 
+    @GET("kasi")
+    suspend fun getKasiList(): Response<GetKasiListResponseModel>
+
     @FormUrlEncoded
     @POST("admin/add")
     suspend fun postNewAdmin(@Field("UserName") username: String,
@@ -290,6 +337,21 @@ interface RestApi {
                                @Field("manager_status") status: String) : Response<BaseResponseModel>
 
     @FormUrlEncoded
+    @POST("kasi/add")
+    suspend fun postNewKasi(@Field("kasi_username") username: String,
+                            @Field("kasi_password") password: String,
+                            @Field("kasi_name") name: String,
+                            @Field("kasi_gender") gender: String,
+                            @Field("kasi_birthday") birthday: String,
+                            @Field("kasi_address") address: String,
+                            @Field("kasi_city") city: String,
+                            @Field("kasi_country") country: String,
+                            @Field("kasi_phone") phoneNumber: String,
+                            @Field("kasi_status") status: String,
+                            @Field("kasi_jabatan") jabatan: String,
+                            @Field("kasi_jenis") jenis: String) : Response<BaseResponseModel>
+
+    @FormUrlEncoded
     @POST("admin/updatestatus")
     suspend fun postUpdateStatusAdmin(@Field("admin_status") status: String,
                                       @Field("id") id: String) : Response<BaseResponseModel>
@@ -298,5 +360,10 @@ interface RestApi {
     @POST("manager/updatestatus")
     suspend fun postUpdateStatusManager(@Field("manager_status") status: String,
                                         @Field("manager_id") id: String) : Response<BaseResponseModel>
+
+    @FormUrlEncoded
+    @POST("kasi/updatestatus")
+    suspend fun postUpdateStatusKasi(@Field("kasi_status") status: String,
+                                     @Field("kasi_id") id: String) : Response<BaseResponseModel>
 
 }

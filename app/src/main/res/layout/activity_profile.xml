@@ -71,10 +71,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/_4sdp"
-                            android:text="@{profile.empId}"
                             android:textColor="@color/ef_white"
                             android:textSize="@dimen/_11ssp"
-                            tools:text="EMP001" />
+                            tools:text="NIP : EMP001" />
 
                     </LinearLayout>
 
@@ -184,12 +183,11 @@
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/email"
+                            android:id="@+id/username"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profile.email}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="permainan" />
@@ -201,7 +199,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profile.position}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Cleaning Service" />
@@ -213,7 +210,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profile.department}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Office Boy" />
@@ -225,7 +221,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profile.dob}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="12 Februari 2019" />
@@ -235,7 +230,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_12sdp"
-                            android:text="@{profile.gender}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Pria" />
@@ -247,7 +241,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profile.phoneNumber}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="089482847621" />
@@ -259,7 +252,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profile.address}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Jl. Raya Pinggir Jalan Tengah Sungai deket tol" />
@@ -271,7 +263,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profile.city}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Malang" />
@@ -283,7 +274,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profile.country}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Indonesia" />

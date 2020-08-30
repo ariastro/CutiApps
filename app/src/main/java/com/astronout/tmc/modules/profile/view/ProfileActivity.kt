@@ -37,106 +37,37 @@ class ProfileActivity : BaseActivity() {
 
         viewModel.getProfile()
 
-        viewModel.empId.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.empId.text = it
-            }
-        })
+        viewModel.userProfile.observe(this, Observer {
+            if (it != null) {
+                binding.fullname.text = it.firstName + it.lastName
+                binding.empId.text = "NIP: ${it.empId}"
+                binding.username.text = it.emailId
+                binding.department.text = it.department
+                binding.position.text = it.position
+                binding.gender.text = it.gender
+                binding.dob.text = it.dob
+                binding.phoneNumber.text = it.phonenumber
+                binding.address.text = it.address
+                binding.city.text = it.city
+                binding.country.text = it.country
+                binding.annualLeaveRights.text = it.annualLeaveRights
 
-        viewModel.firstname.observe(this, Observer {firstName ->
-            if (firstName.isNotEmpty()) {
-                viewModel.lastname.observe(this, Observer { lastName ->
-                    if (lastName.isNotEmpty()) {
-                        binding.fullname.text = "$firstName $lastName"
+                if (it.avatar.isNullOrEmpty()) {
+                    if (it.gender == PRIA) {
+                        GlideApp.with(this)
+                            .load(R.drawable.avatar_male)
+                            .into(binding.profilePicture)
+                    } else {
+                        GlideApp.with(this)
+                            .load(R.drawable.avatar_female)
+                            .into(binding.profilePicture)
                     }
-                })
-            }
-        })
-
-        viewModel.gender.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.gender.text = it
-//                if (it == PRIA) {
-//                    GlideApp.with(this)
-//                        .load(R.drawable.avatar_male)
-//                        .into(binding.profilePicture)
-//                } else {
-//                    GlideApp.with(this)
-//                        .load(R.drawable.avatar_female)
-//                        .into(binding.profilePicture)
-//                }
-            }
-        })
-
-        viewModel.avatar.observe(this, Observer {
-            if (it != "") {
-                GlideApp.with(this)
-                    .load(BuildConfig.BASE_IMG_AVATAR + it)
-                    .into(binding.profilePicture)
-            } else {
-                if (viewModel.gender.value == PRIA) {
-                    GlideApp.with(this)
-                        .load(R.drawable.avatar_male)
-                        .into(binding.profilePicture)
                 } else {
                     GlideApp.with(this)
-                        .load(R.drawable.avatar_female)
+                        .load(BuildConfig.BASE_IMG_AVATAR + it.avatar)
                         .into(binding.profilePicture)
                 }
-            }
-        })
 
-        viewModel.email.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.email.text = it
-            }
-        })
-
-        viewModel.position.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.position.text = it
-            }
-        })
-
-        viewModel.department.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.department.text = it
-            }
-        })
-
-        viewModel.dob.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.dob.text = it
-            }
-        })
-
-        viewModel.address.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.address.text = it
-            }
-        })
-
-        viewModel.city.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.city.text = it
-            }
-        })
-
-        viewModel.country.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.country.text = it
-            }
-        })
-
-        viewModel.annualLeaveRights.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.annualLeaveRights.text = "$it hari"
-            }
-        })
-
-        viewModel.phoneNumber.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.phoneNumber.text = it
             }
         })
 

@@ -16,8 +16,15 @@ import com.astronout.tmc.utils.Constants
 import com.astronout.tmc.utils.Constants.ANNUAL
 import com.astronout.tmc.utils.Constants.ANNUAL_YES
 import com.astronout.tmc.utils.Constants.NON_ANNUAL
+import com.astronout.tmc.utils.Constants.STATUS_DISETUJUI
+import com.astronout.tmc.utils.Constants.STATUS_DISETUJUI_CODE
+import com.astronout.tmc.utils.Constants.STATUS_DITOLAK
+import com.astronout.tmc.utils.Constants.STATUS_DITOLAK_CODE
+import com.astronout.tmc.utils.Constants.STATUS_MENUNGGU
+import com.astronout.tmc.utils.Constants.STATUS_MENUNGGU_CODE
 
-class GetAllLeavesAdapter(val context: Context, private val onClickListener: OnClickListener): ListAdapter<GetAllLeavesModel, GetAllLeavesAdapter.GetAllLeavesViewHolder>(DiffCallback){
+class GetAllLeavesAdapter(val context: Context, private val onClickListener: OnClickListener) :
+    ListAdapter<GetAllLeavesModel, GetAllLeavesAdapter.GetAllLeavesViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GetAllLeavesViewHolder =
         GetAllLeavesViewHolder.from(parent)
@@ -26,26 +33,40 @@ class GetAllLeavesAdapter(val context: Context, private val onClickListener: OnC
         val getAllLeaves = getItem(position)
         holder.bind(getAllLeaves)
 
-        when {
-            holder.binding.statusCuti.text == Constants.STATUS_MENUNGGU_CODE -> {
-                holder.binding.statusCuti.text = Constants.STATUS_MENUNGGU
-                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_orange)
-            }
-            holder.binding.statusCuti.text == Constants.STATUS_DISETUJUI_CODE -> {
-                holder.binding.statusCuti.text = Constants.STATUS_DISETUJUI
-                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_blue)
-            }
-            else -> {
-                holder.binding.statusCuti.text = Constants.STATUS_DITOLAK
+//        when {
+//            holder.binding.statusCuti.text == Constants.STATUS_MENUNGGU_CODE -> {
+//                holder.binding.statusCuti.text = Constants.STATUS_MENUNGGU
+//                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_orange)
+//            }
+//            holder.binding.statusCuti.text == Constants.STATUS_DISETUJUI_CODE -> {
+//                holder.binding.statusCuti.text = Constants.STATUS_DISETUJUI
+//                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_blue)
+//            }
+//            else -> {
+//                holder.binding.statusCuti.text = Constants.STATUS_DITOLAK
+//                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_red)
+//            }
+//        }
+
+        if (getAllLeaves.managerAcc == STATUS_DISETUJUI_CODE) {
+            holder.binding.statusCuti.text = STATUS_DISETUJUI
+            holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_blue)
+        } else {
+            if (getAllLeaves.kasiAcc == STATUS_DITOLAK_CODE || getAllLeaves.kasubagAcc == STATUS_DITOLAK_CODE ||
+                getAllLeaves.managerAcc == STATUS_DITOLAK_CODE) {
+                holder.binding.statusCuti.text = STATUS_DITOLAK
                 holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_red)
+            } else {
+                holder.binding.statusCuti.text = STATUS_MENUNGGU
+                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_orange)
             }
         }
 
-        if (holder.binding.jenisCuti.text == ANNUAL_YES) {
-            holder.binding.jenisCuti.text = ANNUAL
-        } else {
-            holder.binding.jenisCuti.text = NON_ANNUAL
-        }
+//        if (holder.binding.jenisCuti.text == ANNUAL_YES) {
+//            holder.binding.jenisCuti.text = ANNUAL
+//        } else {
+//            holder.binding.jenisCuti.text = NON_ANNUAL
+//        }
 
         holder.binding.itemLayout.setOnClickListener {
             if (getAllLeaves != null) {
@@ -55,8 +76,8 @@ class GetAllLeavesAdapter(val context: Context, private val onClickListener: OnC
 
     }
 
-
-    class GetAllLeavesViewHolder(val binding: ItemAllLeavesBinding) : RecyclerView.ViewHolder(binding.root) {
+    class GetAllLeavesViewHolder(val binding: ItemAllLeavesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(getAllLeavesModel: GetAllLeavesModel) {
             binding.itemAllLeaves = getAllLeavesModel
@@ -76,7 +97,7 @@ class GetAllLeavesAdapter(val context: Context, private val onClickListener: OnC
         fun onClick(getAllLeavesModel: GetAllLeavesModel) = clickListener(getAllLeavesModel)
     }
 
-    private companion object DiffCallback: DiffUtil.ItemCallback<GetAllLeavesModel>() {
+    private companion object DiffCallback : DiffUtil.ItemCallback<GetAllLeavesModel>() {
 
         override fun areItemsTheSame(oldItem: GetAllLeavesModel, newItem: GetAllLeavesModel): Boolean {
             return oldItem == newItem

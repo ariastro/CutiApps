@@ -46,7 +46,10 @@ class AddEmployeeActivity : BaseActivity() {
         }
 
         binding.department.setOnClickListener {
-            startActivityForResult(Intent(this, ChooseDepartmentActivity::class.java), REQUEST_DEPARTMENT)
+            startActivityForResult(
+                Intent(this, ChooseDepartmentActivity::class.java),
+                REQUEST_DEPARTMENT
+            )
         }
 
         binding.radioGender.setOnCheckedChangeListener { group, checkedId ->

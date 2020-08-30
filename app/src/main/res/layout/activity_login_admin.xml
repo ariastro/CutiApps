@@ -23,9 +23,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_12sdp"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/sign_in"
+            android:text="@string/login_admin_cuti"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_32ssp" />
+            android:textSize="@dimen/_24ssp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -106,31 +106,43 @@
                     app:backgroundTint="@color/colorPrimary"
                     app:cornerRadius="@dimen/_4sdp" />
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginEnd="@dimen/_12sdp">
+                    android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvLoginKaryawan"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:text="@string/login_karyawan"
+                        android:textColor="#CC0000"
+                        android:gravity="center"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvLoginKasi"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_kasi_kasubag"
                         android:textColor="#CC0000"
                         android:textSize="@dimen/_12ssp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvLoginManager"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
                         android:text="@string/login_kepala_bnn"
                         android:textColor="#CC0000"
                         android:textSize="@dimen/_12ssp" />
 
-                </RelativeLayout>
+                </LinearLayout>
 
             </LinearLayout>
 

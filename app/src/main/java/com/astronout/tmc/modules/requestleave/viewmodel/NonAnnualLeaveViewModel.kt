@@ -74,21 +74,21 @@ class NonAnnualLeaveViewModel(application: Application): AndroidViewModel(applic
     }
 
     fun postNewLeave() {
-        setLoading(true)
-        val remoteRepository = RemoteRepository(viewModelScope)
-        remoteRepository.postNewLeave(jenisCuti.value!!, startDate.value!!, endDate.value!!,
-            rightsUsed.value.toString(), ANNUAL_NO, NON_ANNUAL_YES, keterangan.value!!,
-            User.idEmployee, {
-                if (it.status) {
-                    setStatus(true)
-                } else {
-                    setStatus(false)
-                }
-            }, {
-                logDebug("postNewNonAnnualLeaveError: $it")
-            }, {
-                setLoading(false)
-            })
+//        setLoading(true)
+//        val remoteRepository = RemoteRepository(viewModelScope)
+//        remoteRepository.postNewLeave(jenisCuti.value!!, startDate.value!!, endDate.value!!,
+//            rightsUsed.value.toString(), ANNUAL_NO, NON_ANNUAL_YES, keterangan.value!!,
+//            User.idEmployee, {
+//                if (it.status) {
+//                    setStatus(true)
+//                } else {
+//                    setStatus(false)
+//                }
+//            }, {
+//                logDebug("postNewNonAnnualLeaveError: $it")
+//            }, {
+//                setLoading(false)
+//            })
     }
 
     init {

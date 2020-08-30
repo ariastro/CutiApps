@@ -11,7 +11,7 @@ data class GetProfileAdminModel(
     @SerializedName("admin_address")
     val adminAddress: String,
     @SerializedName("admin_avatar")
-    val adminAvatar: String,
+    val adminAvatar: String?,
     @SerializedName("admin_birthday")
     val adminBirthday: String,
     @SerializedName("admin_city")

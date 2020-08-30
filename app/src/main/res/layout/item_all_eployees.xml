@@ -60,14 +60,6 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/emp_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_9ssp"
-                        android:text="@{itemAllEmployees.empId}"
-                        tools:text="EMP0001" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_14ssp"
@@ -76,6 +68,14 @@
                         android:ellipsize="end"
                         android:text="@{itemAllEmployees.firstName + ` ` + itemAllEmployees.lastName}"
                         tools:text="Tukijan Silalahi Simanjuntak" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/emp_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_9ssp"
+                        android:text="@{`NIP: ` + itemAllEmployees.empId}"
+                        tools:text="NIP: EMP0001" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/department"

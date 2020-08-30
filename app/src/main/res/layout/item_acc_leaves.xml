@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="itemAccLeaves"
+            type="com.astronout.tmc.modules.leaves.model.GetAccLeavesModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_5sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_70sdp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/nomor_cuti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:text="@{`Nomor Cuti: ` + itemAccLeaves.nomorCuti}"
+                        android:maxLines="1"
+                        android:visibility="gone"
+                        android:ellipsize="end"
+                        tools:text="Liburan" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_14ssp"
+                        android:text="@{itemAccLeaves.firstName + ` ` + itemAccLeaves.lastName}"
+                        tools:text="Tukijan Silalahi Simanjuntak" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/jenis_cuti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:text="@{itemAccLeaves.empDepartment}"
+                        tools:text="Brantas" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:text="@{itemAccLeaves.leaveType}"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        tools:text="Liburan" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:maxLines="1"
+                        android:text="@{itemAccLeaves.description}"
+                        android:ellipsize="end"
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at porta mi, quis malesuada neque." />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:text="@{itemAccLeaves.fromDate + ` - ` + itemAccLeaves.toDate}"
+                        tools:text="22 Desember - 24 Desember" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/status_cuti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/ef_white"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_4sdp"
+                android:background="@drawable/bg_rounded_orange"
+                tools:text="Menunggu"/>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

@@ -24,25 +24,34 @@ class GetLeaveByIdAdapter(val context: Context, private val onClickListener: OnC
         val getLeaveById = getItem(position)
         holder.bind(getLeaveById)
 
-        when {
-            holder.binding.statusCuti.text == Constants.STATUS_MENUNGGU_CODE -> {
+//        when {
+//            holder.binding.statusCuti.text == Constants.STATUS_MENUNGGU_CODE -> {
+//                holder.binding.statusCuti.text = Constants.STATUS_MENUNGGU
+//                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_orange)
+//            }
+//            holder.binding.statusCuti.text == Constants.STATUS_DISETUJUI_CODE -> {
+//                holder.binding.statusCuti.text = Constants.STATUS_DISETUJUI
+//                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_blue)
+//            }
+//            else -> {
+//                holder.binding.statusCuti.text = Constants.STATUS_DITOLAK
+//                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_red)
+//            }
+//        }
+
+        if (getLeaveById.managerAcc == Constants.STATUS_DISETUJUI_CODE) {
+            holder.binding.statusCuti.text = Constants.STATUS_DISETUJUI
+            holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_blue)
+        } else {
+            if (getLeaveById.kasiAcc == Constants.STATUS_DITOLAK_CODE || getLeaveById.kasubagAcc == Constants.STATUS_DITOLAK_CODE ||
+                getLeaveById.managerAcc == Constants.STATUS_DITOLAK_CODE
+            ) {
+                holder.binding.statusCuti.text = Constants.STATUS_DITOLAK
+                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_red)
+            } else {
                 holder.binding.statusCuti.text = Constants.STATUS_MENUNGGU
                 holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_orange)
             }
-            holder.binding.statusCuti.text == Constants.STATUS_DISETUJUI_CODE -> {
-                holder.binding.statusCuti.text = Constants.STATUS_DISETUJUI
-                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_blue)
-            }
-            else -> {
-                holder.binding.statusCuti.text = Constants.STATUS_DITOLAK
-                holder.binding.statusCuti.background = ContextCompat.getDrawable(context, R.drawable.bg_rounded_red)
-            }
-        }
-
-        if (holder.binding.jenisCuti.text == ANNUAL_YES) {
-            holder.binding.jenisCuti.text = ANNUAL
-        } else {
-            holder.binding.jenisCuti.text = NON_ANNUAL
         }
 
         holder.binding.itemLayout.setOnClickListener {

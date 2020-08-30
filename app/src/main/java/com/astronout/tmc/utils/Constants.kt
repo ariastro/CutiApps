@@ -17,9 +17,14 @@ object Constants {
     const val STATUS_DISETUJUI = "Disetujui"
     const val STATUS_DITOLAK = "Ditolak"
 
-    const val USER_ADMIN = "admin"
-    const val USER_EMPLOYEE = "employee"
-    const val USER_MANAGER = "manager"
+    const val STATUS_AKUN_AKTIF = "1"
+    const val STATUS_AKUN_NON_AKTIF = "0"
+
+    const val USER_ADMIN = "0"
+    const val USER_EMPLOYEE = "1"
+    const val USER_KASI = "2"
+    const val USER_KSB = "3"
+    const val USER_MANAGER = "4"
 
     const val PRIA = "Pria"
     const val WANITA = "Wanita"

@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.astronout.tmc.R
 import com.astronout.tmc.base.baseview.BaseActivity
 import com.astronout.tmc.databinding.ActivityChooseAdminTypeBinding
+import com.astronout.tmc.modules.kasi.view.KasiListActivity
 import com.astronout.tmc.modules.manager.view.ManagerListActivity
 import com.astronout.tmc.utils.glide.GlideApp
 import com.bumptech.glide.GenericTransitionOptions
@@ -29,6 +30,10 @@ class ChooseAdminTypeActivity : BaseActivity() {
             startActivity(Intent(this, ManagerListActivity::class.java))
         }
 
+        binding.kasi.setOnClickListener {
+            startActivity(Intent(this, KasiListActivity::class.java))
+        }
+
         GlideApp.with(this)
             .load(R.drawable.admin)
             .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
@@ -38,6 +43,11 @@ class ChooseAdminTypeActivity : BaseActivity() {
             .load(R.drawable.manager)
             .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
             .into(binding.imgManager)
+
+        GlideApp.with(this)
+            .load(R.drawable.riwayat)
+            .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
+            .into(binding.imgKasi)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

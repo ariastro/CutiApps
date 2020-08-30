@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.astronout.tmc.R
 import com.astronout.tmc.base.baseview.BaseActivity
 import com.astronout.tmc.databinding.ActivityManagerHomeBinding
+import com.astronout.tmc.modules.leaves.view.AccLeavesActivity
 import com.astronout.tmc.modules.leaves.view.AllLeavesActivity
 import com.astronout.tmc.modules.manager.view.ProfileManagerActivity
 import com.astronout.tmc.utils.dateFormat
@@ -46,12 +47,21 @@ class ManagerHomeActivity : BaseActivity() {
             .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
             .into(binding.imgProfile)
 
+        GlideApp.with(this)
+            .load(R.drawable.annual)
+            .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
+            .into(binding.imgSetujuiCuti)
+
         binding.cutiKaryawan.setOnClickListener {
             startActivity(Intent(this, AllLeavesActivity::class.java))
         }
 
         binding.profile.setOnClickListener {
             startActivity(Intent(this, ProfileManagerActivity::class.java))
+        }
+
+        binding.setujuiCuti.setOnClickListener {
+            startActivity(Intent(this, AccLeavesActivity::class.java))
         }
 
     }

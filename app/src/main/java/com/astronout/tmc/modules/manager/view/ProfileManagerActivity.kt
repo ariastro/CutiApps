@@ -16,6 +16,7 @@ import com.astronout.tmc.modules.manager.view.UpdateProfileMActivity.Companion.E
 import com.astronout.tmc.modules.manager.viewmodel.ProfileManagerViewModel
 import com.astronout.tmc.modules.profile.view.UpdateProfileActivity.Companion.REQUEST_UPDATE_PROFILE
 import com.astronout.tmc.utils.Constants
+import com.astronout.tmc.utils.Constants.STATUS_AKUN_AKTIF
 import com.astronout.tmc.utils.glide.GlideApp
 import com.astronout.tmc.utils.showToast
 
@@ -33,83 +34,42 @@ class ProfileManagerActivity : BaseActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        viewModel.getProfile()
+        viewModel.managerModel.observe(this, Observer {
+            if (it != null) {
+                binding.fullname.text = it.managerName
+                binding.username.text = it.managerUsername
+                binding.gender.text = it.managerGender
+                binding.dob.text = it.managerBirthday
+                binding.phoneNumber.text = it.managerPhone
+                binding.address.text = it.managerAddress
+                binding.city.text = it.managerCity
+                binding.country.text = it.managerCountry
 
-        viewModel.name.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.fullname.text = it
-            }
-        })
-
-       viewModel.gender.observe(this, Observer {
-           if (it.isNotEmpty()) {
-               binding.gender.text = it
-           }
-       })
-
-        viewModel.avatar.observe(this, Observer {
-            if (it != "") {
-                GlideApp.with(this)
-                    .load(BuildConfig.BASE_IMG_AVATAR + it)
-                    .into(binding.profilePicture)
-            } else {
-                if (viewModel.gender.value == Constants.PRIA) {
-                    GlideApp.with(this)
-                        .load(R.drawable.avatar_male)
-                        .into(binding.profilePicture)
-                } else {
-                    GlideApp.with(this)
-                        .load(R.drawable.avatar_female)
-                        .into(binding.profilePicture)
-                }
-            }
-        })
-
-        viewModel.username.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.email.text = it
-            }
-        })
-
-        viewModel.dob.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.dob.text = it
-            }
-        })
-
-        viewModel.address.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.address.text = it
-            }
-        })
-
-        viewModel.city.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.city.text = it
-            }
-        })
-
-        viewModel.country.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.country.text = it
-            }
-        })
-
-        viewModel.status.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                if (it == "1") {
+                if (it.managerStatus == STATUS_AKUN_AKTIF) {
                     binding.status.text = getString(R.string.aktif)
                 } else {
                     binding.status.text = getString(R.string.non_aktif)
                 }
+
+                if (it.managerAvatar.isNullOrEmpty()) {
+                    if (it.managerGender == Constants.PRIA) {
+                        GlideApp.with(this)
+                            .load(R.drawable.avatar_male)
+                            .into(binding.profilePicture)
+                    } else {
+                        GlideApp.with(this)
+                            .load(R.drawable.avatar_female)
+                            .into(binding.profilePicture)
+                    }
+                } else {
+                    GlideApp.with(this)
+                        .load(BuildConfig.BASE_IMG_AVATAR + it.managerAvatar)
+                        .into(binding.profilePicture)
+                }
             }
         })
 
-        viewModel.phoneNumber.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.phoneNumber.text = it
-            }
-        })
+        viewModel.getProfile()
 
         setupProgressBar()
 
@@ -138,8 +98,7 @@ class ProfileManagerActivity : BaseActivity() {
             val intent = Intent(this, UpdateProfileMActivity::class.java)
             intent.putExtra(EXTRA_UPDATE_MANAGER, viewModel.managerModel.value!!)
             startActivityForResult(intent, UpdateProfileMActivity.REQUEST_UPDATE_PROFILE)
-        } else if (item.itemId == R.id.change_password) {
-            startActivityForResult(
+        } else if (item.itemId == R.id.change_password) { startActivityForResult(
                 Intent(this, ChangePasswordMActivity::class.java),
                 ChangePasswordMActivity.REQUEST_CHANGE_PASSWORD)
         }

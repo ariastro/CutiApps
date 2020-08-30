@@ -13,6 +13,7 @@ import com.astronout.tmc.base.baseview.BaseActivity
 import com.astronout.tmc.databinding.ActivityLoginManagerBinding
 import com.astronout.tmc.modules.auth.admin.view.LoginAdminActivity
 import com.astronout.tmc.modules.auth.empolyees.view.LoginActivity
+import com.astronout.tmc.modules.auth.kasi.view.LoginKasiActivity
 import com.astronout.tmc.modules.auth.local.User
 import com.astronout.tmc.modules.auth.manager.viewmodel.LoginManagerViewModel
 import com.astronout.tmc.modules.main.AdminHomeActivity
@@ -53,6 +54,11 @@ class LoginManagerActivity : BaseActivity() {
 
         binding.tvLoginAdmin.setOnClickListener {
             startActivity(Intent(this, LoginAdminActivity::class.java))
+            finish()
+        }
+
+        binding.tvLoginKasi.setOnClickListener {
+            startActivity(Intent(this, LoginKasiActivity::class.java))
             finish()
         }
 

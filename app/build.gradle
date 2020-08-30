@@ -26,7 +26,9 @@ def compressorVersion = "2.1.0"
 def photoViewVersion = "2.3.0"
 def jodaTimeVersion = "2.10.3"
 def bottomSheetVersion = "1.5.0"
-def materialDialogVersion = "3.1.1"
+def materialDialogVersion = "3.3.0"
+def BASE_API_URL = '"' + BASE_API + '"' ?: '"Define BASE URL"'
+def BASE_IMG_AVATAR = '"' + BASE_IMG_AVATAR_URL + '"' ?: '"Define IMG AVATAR URL"'
 
 android {
     compileSdkVersion 29
@@ -37,7 +39,7 @@ android {
         targetSdkVersion 29
         multiDexEnabled true
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
         vectorDrawables.useSupportLibrary = true
         setProperty("archivesBaseName", applicationId + "-v" + versionCode + "(" + versionName + ")")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -61,12 +63,12 @@ android {
     flavorDimensions "default"
     productFlavors {
         development {
-            buildConfigField "String", "BASE_API_URL", "\"https://tmc-rest.000webhostapp.com/api/\""
-            buildConfigField "String", "BASE_IMG_AVATAR", "\"https://tmc-rest.000webhostapp.com/img/\""
+            buildConfigField "String", 'BASE_API_URL', BASE_API
+            buildConfigField "String", 'BASE_IMG_AVATAR', BASE_IMG_AVATAR_URL
         }
         production {
-            buildConfigField "String", "BASE_API_URL", "\"https://tmc-rest.000webhostapp.com/api/\""
-            buildConfigField "String", "BASE_IMG_AVATAR", "\"https://tmc-rest.000webhostapp.com/img/\""
+            buildConfigField "String", 'BASE_API_URL', BASE_API
+            buildConfigField "String", 'BASE_IMG_AVATAR', BASE_IMG_AVATAR_URL
         }
     }
     compileOptions {

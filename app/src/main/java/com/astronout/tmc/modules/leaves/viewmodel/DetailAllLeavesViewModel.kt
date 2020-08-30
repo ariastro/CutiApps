@@ -108,37 +108,4 @@ class DetailAllLeavesViewModel(application: Application): AndroidViewModel(appli
         _adminRemarkDate.value = dateNow.toString(defaultDateTimeFormat)
     }
 
-    fun postDecision() {
-        setLoading(true)
-        val remoteRepository = RemoteRepository(viewModelScope)
-        remoteRepository.postDecision(adminRemark.value!!, adminRemarkDate.value!!,
-            keputusan.value!!, id.value!!, {
-                if (it.status) {
-                    setStatus(true)
-                } else {
-                    setStatus(false)
-                }
-            }, {
-                logDebug("#postDecisionError : $it")
-            }, {
-                setLoading(false)
-            })
-    }
-
-    fun updateAnnualLeaveRights() {
-        setLoadingRights(true)
-        val remoteRepository = RemoteRepository(viewModelScope)
-        remoteRepository.postUpdateLeaveRights(employeeId.value!!, leaveGranted.value!!, {
-                if (it.status) {
-                    setStatusRights(true)
-                } else {
-                    setStatusRights(false)
-                }
-            }, {
-                logDebug("#updateAnnualLeaveRightsError : $it")
-            }, {
-                setLoadingRights(false)
-            })
-    }
-
 }

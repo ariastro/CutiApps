@@ -77,13 +77,9 @@ class AnnualLeaveViewModel(application: Application): AndroidViewModel(applicati
         setLoading(true)
         val remoteRepository = RemoteRepository(viewModelScope)
         remoteRepository.postNewLeave(jenisCuti.value!!, startDate.value!!, endDate.value!!,
-            leaveRightUsed.value.toString(), ANNUAL_YES, NON_ANNUAL_NO, keterangan.value!!,
+            leaveRightUsed.value.toString(), User.department, keterangan.value!!,
             User.idEmployee, {
-                if (it.status) {
-                    setStatus(true)
-                } else {
-                    setStatus(false)
-                }
+                setStatus(it.status)
             }, {
                 logDebug("postNewAnnualLeaveError: $it")
             }, {

@@ -69,11 +69,7 @@ class UpdateProfileAActivity : BaseActivity() {
         viewModel.setCountry(extraData.adminCountry)
         viewModel.setDob(extraData.adminBirthday)
 
-        if (extraData.adminAvatar != "") {
-            GlideApp.with(this)
-                .load(BuildConfig.BASE_IMG_AVATAR + extraData.adminAvatar)
-                .into(binding.profileAvatar)
-        } else {
+        if (extraData.adminAvatar.isNullOrEmpty()) {
             if (extraData.adminGender == Constants.PRIA) {
                 GlideApp.with(this)
                     .load(R.drawable.avatar_male)
@@ -83,6 +79,10 @@ class UpdateProfileAActivity : BaseActivity() {
                     .load(R.drawable.avatar_female)
                     .into(binding.profileAvatar)
             }
+        } else {
+            GlideApp.with(this)
+                .load(BuildConfig.BASE_IMG_AVATAR + extraData.adminAvatar)
+                .into(binding.profileAvatar)
         }
 
         viewModel.avatarMessage.observe(this, Observer {

@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textSize="@dimen/_14ssp"
+                android:textColor="@color/greyText"
                 android:visibility="gone"
                 android:text="@string/belum_ada_riwayat_cuti"/>
 

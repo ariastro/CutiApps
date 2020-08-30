@@ -14,92 +14,146 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            app:titleTextColor="@color/ef_white"
-            android:theme="@style/AppTheme.AppBarOverlay"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimaryDark" />
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:titleTextColor="@color/ef_white" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal">
+            android:layout_centerInParent="true">
 
-            <RelativeLayout
-                android:id="@+id/admin"
-                android:layout_width="@dimen/_140sdp"
-                android:layout_height="@dimen/_145sdp"
-                android:background="@drawable/bg_menu">
+            <LinearLayout
+                android:id="@+id/top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginEnd="@dimen/_16sdp">
+                    android:id="@+id/admin"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="@dimen/_145sdp"
+                    android:background="@drawable/bg_menu">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_admin"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_95sdp"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/ic_rounded_purple"
-                        android:padding="@dimen/_8sdp"
-                        tools:srcCompat="@drawable/admin" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/img_admin"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/_3sdp"
-                        android:text="@string/admin_cuti"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_16sdp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_admin"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_95sdp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_rounded_purple"
+                            android:padding="@dimen/_8sdp"
+                            tools:srcCompat="@drawable/admin" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/img_admin"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:text="@string/admin_cuti"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/manager"
-                android:layout_width="@dimen/_140sdp"
-                android:layout_height="@dimen/_145sdp"
-                android:background="@drawable/bg_menu">
-
                 <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginEnd="@dimen/_16sdp">
+                    android:id="@+id/manager"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="@dimen/_145sdp"
+                    android:background="@drawable/bg_menu">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_manager"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_95sdp"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/ic_rounded_purple"
-                        android:padding="@dimen/_8sdp"
-                        tools:srcCompat="@drawable/manager" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/img_manager"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/_3sdp"
-                        android:text="@string/kepala_bnn"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_16sdp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_manager"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_95sdp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_rounded_purple"
+                            android:padding="@dimen/_8sdp"
+                            tools:srcCompat="@drawable/manager" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/img_manager"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:text="@string/kepala_bnn"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
-            </RelativeLayout>
+            </LinearLayout>
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/kasi"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="@dimen/_145sdp"
+                    android:background="@drawable/bg_menu">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_16sdp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_kasi"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_95sdp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_rounded_purple"
+                            android:padding="@dimen/_8sdp"
+                            tools:srcCompat="@drawable/riwayat" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/img_kasi"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:text="@string/kasi_amp_kasubag"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

@@ -17,20 +17,45 @@
         android:theme="@style/AppThemeNoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".modules.kasi.view.AddKasiActivity"
+            android:label="@string/tambah_kasi_kasubag"/>
+        <activity
+            android:name=".modules.kasi.view.KasiListActivity"
+            android:label="@string/kasi_amp_kasubag"/>
+        <activity
+            android:name=".modules.kasi.view.UpdateProfileKActivity"
+            android:label="@string/update_profile"/>
+        <activity
+            android:name=".modules.kasi.view.ChangePasswordKActivity"
+            android:label="@string/ganti_password"/>
+        <activity
+            android:name=".modules.kasi.view.ProfileKasiActivity"
+            android:label="@string/profil_diri" />
+        <activity
+            android:name=".modules.leaves.view.DetailAccLeavesActivity"
+            android:label="@string/detail_cuti" />
+        <activity
+            android:name=".modules.leaves.view.AccLeavesActivity"
+            android:label="@string/setujui_cuti" />
+        <activity
+            android:name=".modules.main.KasiHomeActivity"
+            android:label="" />
+        <activity android:name=".modules.auth.kasi.view.LoginKasiActivity" />
+        <activity
             android:name=".modules.manager.view.AddManagerActivity"
-            android:label="@string/tambah_kepala_bnn"/>
+            android:label="@string/tambah_kepala_bnn" />
         <activity
             android:name=".modules.manager.view.ManagerListActivity"
-            android:label="@string/kepala_bnn"/>
+            android:label="@string/kepala_bnn" />
         <activity
             android:name=".modules.admin.view.AddAdminActivity"
-            android:label="@string/tambah_admin"/>
+            android:label="@string/tambah_admin" />
         <activity
             android:name=".modules.admin.view.AdminListActivity"
-            android:label="@string/admin_cuti"/>
+            android:label="@string/admin_cuti" />
         <activity
             android:name=".modules.admin.view.ChooseAdminTypeActivity"
-            android:label="@string/admin_kepala_bnn"/>
+            android:label="@string/admin_kepala_bnn" />
         <activity
             android:name=".modules.admin.view.ChangePasswordAActivity"
             android:label="@string/ganti_password" />
@@ -94,7 +119,7 @@
             android:label="@string/detail_cuti" />
         <activity
             android:name=".modules.leaves.view.AllLeavesActivity"
-            android:label="@string/permohonan_cuti" />
+            android:label="@string/data_cuti_karyawan" />
         <activity
             android:name=".modules.main.AdminHomeActivity"
             android:label="@string/halaman_admin" />
@@ -145,7 +170,7 @@
         </activity>
         <activity
             android:name=".modules.main.MainActivity"
-            android:label="@string/home" />
+            android:label="@string/halaman_karyawan" />
     </application>
 
 </manifest>

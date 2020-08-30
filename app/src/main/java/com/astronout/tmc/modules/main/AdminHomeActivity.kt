@@ -14,6 +14,7 @@ import com.astronout.tmc.modules.department.view.DepartmentActivity
 import com.astronout.tmc.modules.employees.view.EmployeesActivity
 import com.astronout.tmc.modules.leaves.view.AllLeavesActivity
 import com.astronout.tmc.modules.leavetype.LeaveTypeActivity
+import com.astronout.tmc.modules.leavetype.annual.view.GetAnnualActivity
 import com.astronout.tmc.utils.dateFormat
 import com.astronout.tmc.utils.glide.GlideApp
 import com.bumptech.glide.GenericTransitionOptions
@@ -77,7 +78,7 @@ class AdminHomeActivity : BaseActivity() {
         }
 
         binding.jenisCuti.setOnClickListener {
-            startActivity(Intent(this, LeaveTypeActivity::class.java))
+            startActivity(Intent(this, GetAnnualActivity::class.java))
         }
 
         binding.karyawan.setOnClickListener {

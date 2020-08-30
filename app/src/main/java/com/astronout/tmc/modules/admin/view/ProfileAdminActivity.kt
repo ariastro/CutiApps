@@ -32,83 +32,42 @@ class ProfileAdminActivity : BaseActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        viewModel.getProfile()
+        viewModel.adminModel.observe(this, Observer {
+            if (it != null) {
+                binding.fullname.text = it.adminName
+                binding.username.text = it.userName
+                binding.gender.text = it.adminGender
+                binding.dob.text = it.adminBirthday
+                binding.phoneNumber.text = it.adminPhone
+                binding.address.text = it.adminAddress
+                binding.city.text = it.adminCity
+                binding.country.text = it.adminCountry
 
-        viewModel.name.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.fullname.text = it
-            }
-        })
-
-        viewModel.gender.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.gender.text = it
-            }
-        })
-
-        viewModel.avatar.observe(this, Observer {
-            if (it != "") {
-                GlideApp.with(this)
-                    .load(BuildConfig.BASE_IMG_AVATAR + it)
-                    .into(binding.profilePicture)
-            } else {
-                if (viewModel.gender.value == Constants.PRIA) {
-                    GlideApp.with(this)
-                        .load(R.drawable.avatar_male)
-                        .into(binding.profilePicture)
-                } else {
-                    GlideApp.with(this)
-                        .load(R.drawable.avatar_female)
-                        .into(binding.profilePicture)
-                }
-            }
-        })
-
-        viewModel.username.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.email.text = it
-            }
-        })
-
-        viewModel.dob.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.dob.text = it
-            }
-        })
-
-        viewModel.address.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.address.text = it
-            }
-        })
-
-        viewModel.city.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.city.text = it
-            }
-        })
-
-        viewModel.country.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.country.text = it
-            }
-        })
-
-        viewModel.status.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                if (it == "1") {
+                if (it.adminStatus == Constants.STATUS_AKUN_AKTIF) {
                     binding.status.text = getString(R.string.aktif)
                 } else {
                     binding.status.text = getString(R.string.non_aktif)
                 }
+
+                if (it.adminAvatar.isNullOrEmpty()) {
+                    if (it.adminGender == Constants.PRIA) {
+                        GlideApp.with(this)
+                            .load(R.drawable.avatar_male)
+                            .into(binding.profilePicture)
+                    } else {
+                        GlideApp.with(this)
+                            .load(R.drawable.avatar_female)
+                            .into(binding.profilePicture)
+                    }
+                } else {
+                    GlideApp.with(this)
+                        .load(BuildConfig.BASE_IMG_AVATAR + it.adminAvatar)
+                        .into(binding.profilePicture)
+                }
             }
         })
 
-        viewModel.phoneNumber.observe(this, Observer {
-            if (it.isNotEmpty()) {
-                binding.phoneNumber.text = it
-            }
-        })
+        viewModel.getProfile()
 
         setupProgressBar()
 

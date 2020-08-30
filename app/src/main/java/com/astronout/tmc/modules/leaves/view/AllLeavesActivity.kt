@@ -36,7 +36,7 @@ class AllLeavesActivity : BaseActivity() {
 
         viewModel.listLeaves.observe(this, Observer {
             if (it.isNotEmpty()) {
-                adapter = GetAllLeavesAdapter(this, GetAllLeavesAdapter.OnClickListener{getAllLeaves ->
+                adapter = GetAllLeavesAdapter(this, GetAllLeavesAdapter.OnClickListener{ getAllLeaves ->
                     val intent = Intent(this, DetailAllLeavesActivity::class.java)
                     intent.putExtra(EXTRA_ALL_LEAVES, getAllLeaves)
                     startActivityForResult(intent, REQUEST_DETAIL_LEAVES)

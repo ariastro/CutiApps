@@ -16,7 +16,6 @@ import com.astronout.tmc.modules.auth.local.User
 import com.astronout.tmc.modules.manager.adapter.ManagerListAdapter
 import com.astronout.tmc.modules.manager.view.AddManagerActivity.Companion.REQUEST_ADD_MANAGER
 import com.astronout.tmc.modules.manager.viewmodel.ManagerListViewModel
-import com.astronout.tmc.modules.manager.viewmodel.SheetManagerFragment
 import com.astronout.tmc.utils.Constants
 import com.astronout.tmc.utils.showToast
 

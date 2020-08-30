@@ -60,7 +60,6 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/_16sdp"
                             android:textColor="@color/ef_white"
-                            android:text="@{profileManager.name}"
                             android:textSize="@dimen/_19ssp"
                             android:textStyle="bold"
                             tools:text="Welly Simanjuntak Silalahi" />
@@ -157,12 +156,11 @@
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/email"
+                            android:id="@+id/username"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profileManager.username}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="permainan" />
@@ -174,7 +172,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profileManager.dob}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="12 Februari 2019" />
@@ -184,7 +181,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_12sdp"
-                            android:text="@{profileManager.gender}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Pria" />
@@ -196,7 +192,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profileManager.phoneNumber}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="089482847621" />
@@ -208,7 +203,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profileManager.address}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Jl. Raya Pinggir Jalan Tengah Sungai deket tol" />
@@ -220,7 +214,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profileManager.city}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Malang" />
@@ -232,7 +225,6 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@{profileManager.country}"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12ssp"
                             tools:text="Indonesia" />

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Pengajuan Cuti BNN Kab. Blitar</string>
-    <string name="aplikasi_pengajuan_cuti">APLIKASI PENGAJUAN CUTI\nBNN KAB. BLITAR</string>
+    <string name="aplikasi_pengajuan_cuti">APLIKASI PENGAJUAN CUTI\nBNN</string>
     <string name="login">LOGIN</string>
     <string name="login_admin_klik_disini">Login Admin Klik Disini</string>
     <string name="password">Password</string>
@@ -36,14 +36,14 @@
     <string name="tanggal_cuti">Tanggal Cuti</string>
     <string name="tanggal_masuk_kembali">Tanggal Masuk Kembali</string>
     <string name="keterangan">Keterangan</string>
-    <string name="permohonan_cuti_tahunan">Permohonan Cuti Tahunan</string>
+    <string name="permohonan_cuti_tahunan">Pengajuan Cuti Tahunan</string>
     <string name="permohonan_cuti_non_tahunan">Permohonan Cuti Non-Tahunan</string>
     <string name="hak_cuti_dipergunakan">Hak cuti dipergunakan :</string>
     <string name="sisa_cuti_anda">Sisa cuti anda :</string>
     <string name="choose_start_date_first">Pilih tanggal cuti terlebih dahulu!</string>
     <string name="mengurangi_hak_cuti_tahunan">Akan Mengurangi Hak Cuti Tahunan</string>
     <string name="tidak_mengurangi_hak_cuti_tahunan">Tidak Mengurangi Hak Cuti Tahunan</string>
-    <string name="alert_no_right_left">Maaf sisa cuti Anda 0 hari. Silahkan hubungi admin atau HRD</string>
+    <string name="alert_no_right_left">Maaf sisa cuti Anda 0 hari. Silahkan hubungi admin</string>
     <string name="empty_field">Field tidak boleh kosong!</string>
     <string name="not_enough_rights">Sisa hak cuti anda tidak cukup!</string>
     <string name="leave_request_success">Permohonan Cuti Berhasil Terkirim</string>
@@ -152,4 +152,25 @@
     <string name="already_active">Akun sudah aktif!</string>
     <string name="aktif_alert">Aktifkan akun ini?</string>
     <string name="tambah_kepala_bnn">Tambah Kepala BNN</string>
+    <string name="login_kasi_kasubag">Login Kasi/Kasubag</string>
+    <string name="setujui_cuti">Setujui Cuti</string>
+    <string name="halaman_kasi">Halaman Kasi</string>
+    <string name="halaman_ksb">Halaman Kasubag</string>
+    <string name="halaman_karyawan">Halaman Karyawan</string>
+    <string name="no_data_found">Tidak ada data!</string>
+    <string name="no_cuti">Nomor Cuti</string>
+    <string name="catatan_kasi">Catatan Kasi</string>
+    <string name="catatan_kasubag">Catatan Kasubag</string>
+    <string name="empty_no_cuti">Nomor Cuti tidak boleh kosong!</string>
+    <string name="catatan_kepala_bnn">Catatan Kepala BNN</string>
+    <string name="nip">NIP</string>
+    <string name="kasi">Kasi</string>
+    <string name="kasubag">Kasubag</string>
+    <string name="tanggal_mulai_cuti">Tanggal Mulai Cuti</string>
+    <string name="tanggal_akhir_cuti">Tanggal Akhir Cuti</string>
+    <string name="kasi_amp_kasubag"><![CDATA[Kasi & Kasubag]]></string>
+    <string name="tambah_kasi">Tambah Kasi</string>
+    <string name="tambah">Tambah</string>
+    <string name="tambah_kasi_kasubag"><![CDATA[Tambah Kasi & Kasubag]]></string>
+    <string name="data_cuti_karyawan">Data Cuti Karyawan</string>
 </resources>

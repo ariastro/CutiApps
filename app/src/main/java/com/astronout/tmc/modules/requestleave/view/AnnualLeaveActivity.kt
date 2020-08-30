@@ -14,6 +14,7 @@ import com.astronout.tmc.modules.requestleave.view.ChooseAnnualActivity.Companio
 import com.astronout.tmc.modules.requestleave.view.ChooseAnnualActivity.Companion.REQUEST_ANNUAL_TYPE
 import com.astronout.tmc.modules.requestleave.viewmodel.AnnualLeaveViewModel
 import com.astronout.tmc.utils.*
+import com.astronout.tmc.utils.Constants.EXTRA_MESSAGE
 import org.joda.time.DateTime
 import org.joda.time.Days
 import org.joda.time.format.DateTimeFormat
@@ -26,7 +27,6 @@ class AnnualLeaveActivity : BaseActivity() {
 
     companion object {
         const val REQUEST_ANNUAL_LEAVE = 7251
-        const val EXTRA_MESSAGE = "EXTRA_MESSAGE"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

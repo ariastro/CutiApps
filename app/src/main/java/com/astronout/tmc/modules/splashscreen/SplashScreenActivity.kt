@@ -9,10 +9,13 @@ import com.astronout.tmc.R
 import com.astronout.tmc.modules.main.AdminHomeActivity
 import com.astronout.tmc.modules.auth.empolyees.view.LoginActivity
 import com.astronout.tmc.modules.auth.local.User
+import com.astronout.tmc.modules.main.KasiHomeActivity
 import com.astronout.tmc.modules.main.MainActivity
 import com.astronout.tmc.modules.main.ManagerHomeActivity
 import com.astronout.tmc.utils.AppHelper
 import com.astronout.tmc.utils.Constants.USER_EMPLOYEE
+import com.astronout.tmc.utils.Constants.USER_KASI
+import com.astronout.tmc.utils.Constants.USER_KSB
 import com.astronout.tmc.utils.Constants.USER_MANAGER
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -49,6 +52,7 @@ class SplashScreenActivity : AppCompatActivity() {
         return when {
             User.userType == USER_EMPLOYEE -> Intent(context, MainActivity::class.java)
             User.userType == USER_MANAGER -> Intent(context, ManagerHomeActivity::class.java)
+            User.userType == USER_KASI || User.userType == USER_KSB -> Intent(context, KasiHomeActivity::class.java)
             else -> Intent(context, AdminHomeActivity::class.java)
         }
     }

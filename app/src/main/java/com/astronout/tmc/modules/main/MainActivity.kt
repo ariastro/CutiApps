@@ -1,5 +1,6 @@
 package com.astronout.tmc.modules.main
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -11,9 +12,13 @@ import com.astronout.tmc.databinding.ActivityMainBinding
 import com.astronout.tmc.modules.auth.empolyees.view.LoginActivity
 import com.astronout.tmc.modules.leaves.view.LeaveActivity
 import com.astronout.tmc.modules.profile.view.ProfileActivity
+import com.astronout.tmc.modules.requestleave.view.AnnualLeaveActivity
+import com.astronout.tmc.modules.requestleave.view.AnnualLeaveActivity.Companion.REQUEST_ANNUAL_LEAVE
 import com.astronout.tmc.modules.requestleave.view.ChooseLeaveTypeActivity
+import com.astronout.tmc.utils.Constants.EXTRA_MESSAGE
 import com.astronout.tmc.utils.dateFormat
 import com.astronout.tmc.utils.glide.GlideApp
+import com.astronout.tmc.utils.showToast
 import com.bumptech.glide.GenericTransitionOptions
 import org.joda.time.DateTime
 
@@ -43,7 +48,7 @@ class MainActivity : BaseActivity() {
         }
 
         binding.ajukanCuti.setOnClickListener {
-            startActivity(Intent(this, ChooseLeaveTypeActivity::class.java))
+            startActivityForResult(Intent(this, AnnualLeaveActivity::class.java), REQUEST_ANNUAL_LEAVE)
         }
 
         binding.logout.setOnClickListener {
@@ -85,6 +90,17 @@ class MainActivity : BaseActivity() {
             .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
             .into(binding.imgProfile)
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_ANNUAL_LEAVE) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (data != null) {
+                    showToast(data.getStringExtra(EXTRA_MESSAGE)!!)
+                }
+            }
+        }
     }
 
 }

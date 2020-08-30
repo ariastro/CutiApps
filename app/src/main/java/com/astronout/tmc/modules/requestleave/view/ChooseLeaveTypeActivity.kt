@@ -7,9 +7,9 @@ import androidx.databinding.DataBindingUtil
 import com.astronout.tmc.R
 import com.astronout.tmc.base.baseview.BaseActivity
 import com.astronout.tmc.databinding.ActivityChooseLeaveTypeBinding
-import com.astronout.tmc.modules.requestleave.view.AnnualLeaveActivity.Companion.EXTRA_MESSAGE
 import com.astronout.tmc.modules.requestleave.view.AnnualLeaveActivity.Companion.REQUEST_ANNUAL_LEAVE
 import com.astronout.tmc.modules.requestleave.view.NonAnnualLeaveActivity.Companion.REQUEST_NON_ANNUAL_LEAVE
+import com.astronout.tmc.utils.Constants.EXTRA_MESSAGE
 import com.astronout.tmc.utils.glide.GlideApp
 import com.astronout.tmc.utils.showToast
 import com.bumptech.glide.GenericTransitionOptions

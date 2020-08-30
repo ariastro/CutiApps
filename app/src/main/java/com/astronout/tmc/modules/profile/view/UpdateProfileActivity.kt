@@ -66,11 +66,7 @@ class UpdateProfileActivity : BaseActivity() {
             binding.radioFemale.isChecked = true
         }
 
-        if (User.userAvatar != "") {
-            GlideApp.with(this)
-                .load(BuildConfig.BASE_IMG_AVATAR + User.userAvatar)
-                .into(binding.profileAvatar)
-        } else {
+        if (User.userAvatar.isNullOrEmpty()) {
             if (User.gender == PRIA) {
                 GlideApp.with(this)
                     .load(R.drawable.avatar_male)
@@ -80,6 +76,10 @@ class UpdateProfileActivity : BaseActivity() {
                     .load(R.drawable.avatar_female)
                     .into(binding.profileAvatar)
             }
+        } else {
+            GlideApp.with(this)
+                .load(BuildConfig.BASE_IMG_AVATAR + User.userAvatar)
+                .into(binding.profileAvatar)
         }
 
         viewModel.avatarMessage.observe(this, Observer {

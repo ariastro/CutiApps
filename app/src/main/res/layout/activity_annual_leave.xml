@@ -63,7 +63,7 @@
                 android:id="@+id/start_date_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/tanggal_cuti"
+                android:hint="@string/tanggal_mulai_cuti"
                 android:textColorHint="@color/ef_grey"
                 app:errorEnabled="true">
 
@@ -83,7 +83,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/tanggal_masuk_kembali"
+                android:hint="@string/tanggal_akhir_cuti"
                 android:textColorHint="@color/ef_grey"
                 app:errorEnabled="true">
 
@@ -124,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
                     app:bindingTextInputEditText="@{annualLeave._keterangan}"
-                    android:inputType="textCapSentences"
+                    android:inputType="textCapSentences|textMultiLine"
                     android:textSize="@dimen/_14ssp"
                     tools:text="Hi guys jadi gua mau cuti 5 bulan dari sekarang" />
 
