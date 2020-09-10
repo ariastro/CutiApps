@@ -10,15 +10,15 @@ This is an app that helps BNN Blitar employees to request for leave. This app i 
 
 ## Login
 
-[x] User        : user | user
-[x] Kasi        : kasi | kasi
-[x] Kasubag     : kasubag | kasubag
-[x] Admin       : admin | admin
-[x] Kepala BNN  : manager | manager
+- [x] User        : user | user
+- [x] Kasi        : kasi | kasi
+- [x] Kasubag     : kasubag | kasubag
+- [x] Admin       : admin | admin
+- [x] Kepala BNN  : manager | manager
 
 ## Screenshot
 
-<img src="https://gitlab.com/ariastro/adopsi.in/-/raw/master/ss/adopsiin.jpg" height="400"/>
+<img src="https://github.com/ariastro/CutiBNNApps/blob/master/ss/cutibnn.jpg?raw=true" height="400"/>
 
 ## List Libraries used in this Project
 
